@@ -6,11 +6,17 @@
 
 {% block content %}
 <div class="row">
-	<div class="col s4 push-s4">
-		<form method="POST">
-			{% csrf_token %} {{ form.as_p }}
+	<div class="col s4 profile">
+		<form method="POST" class="profile center">
+			{% csrf_token %} 
+			{{ form.as_p }}
 			<div class="center"><button class="waves-effect waves-light btn btn-large" type="submit">register</button></div>
 		</form>
 	</div>
 </div>
+<style type="text/css">
+	.profile{
+		padding: 9px;
+	}
+</style>
 {% endblock %}
