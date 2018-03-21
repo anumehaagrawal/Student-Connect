@@ -43,7 +43,7 @@ class RecommendationForm(forms.Form):
 		required=True,
 		label='SAT Score',
 	)
-	gpa = forms.IntegerField(
+	gpa = forms.DecimalField(
 		required=True,
 		label='GPA (scaled out of 4)',
 	)

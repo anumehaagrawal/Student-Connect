@@ -1,16 +1,23 @@
-{% extends "base.html" %}
-{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home - Student Connect</title>
 
-{% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-{% endblock %}
+	{% load static %}
 
-{% block title %}
-<title>Home</title>
-{% endblock %}
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Exo+2|Quicksand:500" rel="stylesheet" /> 
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 
-{% block content %}
-<div class="first-container">
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</head>
+<body class="mainpage-body">
+	<div class="first-container">
 		<div class="container">
 			<h2 class="main-heading white-text">ML assisted College Recommendations and Counselling Platform</h2>
 			<div class="sub-heading">Connects university applicants with university students. Smart ML based college recommendation based on you academics, affordability and a whole lot of other factors!</div>
@@ -29,19 +36,14 @@
 			</div>
 		</div>
 	</div>
-<div class="container">
-	<h1 class="center main-heading blue-grey-text text-darken-3">What's in for you?</h1>
-	<div class="row">
-		<div class="col l2 right-align set-common-size-tick"><i class="material-icons green-text">done</i></div>
-		<div class="col l10 set-common-size light">Smart and ML based college recommendations</div>
+	<div class="second-container">
+		<div class="container">
+			<h1 class="light center main-heading second-main blue-grey-text text-darken-1">Who are you?</h1>
+		</div>
+		<div class="row buttons-row">
+			<div class="col l4 push-l1 big-buttons"><a href="/student">Student</a></div>
+			<div class="col l4 push-l3 big-buttons"><a href="/counsellor">Counsellor</a></div>
+		</div>
 	</div>
-	<div class="row">
-		<div class="col l2 right-align set-common-size-tick"><i class="material-icons green-text">done</i></div>
-		<div class="col l10 set-common-size light">Counselling from exceptional students in prestigious colleges</div>
-	</div>
-	<div class="row">
-		<div class="col l2 right-align set-common-size-tick"><i class="material-icons green-text">done</i></div>
-		<div class="col l10 set-common-size light">Cost effective</div>
-	</div>
-</div>
-{% endblock %}
+</body>
+</html>

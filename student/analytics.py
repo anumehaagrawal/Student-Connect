@@ -56,5 +56,4 @@ def recommend_college(student_income,student_interest,student_ethnic,student_sco
 				if(float(ethnic_values[student_ethnic]) >0.07):
 					if(student_income*4*152/100 > int(col.fees)):
 						college_suggest.append(col.title)
-						print(college_suggest)
 	return college_suggest
