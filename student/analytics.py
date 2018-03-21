@@ -14,19 +14,21 @@ sentiment_api_url = text_analytics_base_url + "/sentiment"
 
 def generate_ratings(college_reviews):
 	reviews=college_reviews.split(";")
-	ratings=[]
+	ratingslist=[]
 	for review in reviews:
-		documents={}
-		documents['documents']=[]
-		arr=documents.get('documents')
-		arr.append({'id': '1', 'language':'en','text':review})
-		headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-		response  = requests.post(sentiment_api_url, headers=headers, json=documents)
-		sentiments = response.json()
-		result=sentiments['documents']
-		score=result[0]['score']
-		ratings.append(score)
-	score_allotted=np.sum(ratings)/len(ratings)
+		if(len(review)>1):
+			documents={}
+			documents['documents']=[]
+			arr=documents.get('documents')
+			arr.append({'id': '1', 'language':'en','text':review})
+			headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+			response  = requests.post(sentiment_api_url, headers=headers, json=documents)
+			sentiments = response.json()
+			result=sentiments['documents']
+			score=result[0]
+			score=score['score']
+			ratingslist.append(score)
+	score_allotted=np.sum(ratingslist)/len(ratingslist)
 	if(score_allotted<0.20):
 		return(1)
 	elif(score_allotted<0.4):

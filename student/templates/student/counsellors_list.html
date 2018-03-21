@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Counsellors</title>
+{% endblock %}
+
+{% block content %}
+{% for counsellor in data %}
+	<h1>{{ counsellor.name }}</h1>
+{% endfor %}
+{% endblock %}

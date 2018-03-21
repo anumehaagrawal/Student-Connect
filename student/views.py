@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 from .analytics import recommend_college
 from .models import *
-from .forms import UserRegistrationForm, RecommendationForm
+from .forms import UserRegistrationForm, RecommendationForm, CounsellorForm
 
 def home(request):
 	return render(request, 'student/home.html')
@@ -47,11 +47,8 @@ def colleges(request):
 
 @login_required
 def recommendations(request):
-    # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = RecommendationForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
             income = request.POST.get('income', '')
             ethnic_group = request.POST.get('ethnic_group', '')
@@ -60,9 +57,18 @@ def recommendations(request):
             interest = request.POST.get('interest', '')
             recommended_colleges = recommend_college(int(income), interest, int(ethnic_group), int(sat_score))
             return render(request, 'student/result.html', {'data': recommended_colleges})
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = RecommendationForm()
-
     return render(request, 'student/recommendation.html', {'form': form})
+
+@login_required
+def counsellors(request):
+    if request.method == 'POST':
+        form = CounsellorForm(request.POST)
+        if form.is_valid():
+            university = request.POST.get('university', '')
+            counsellors_list = Counsellor.objects.filter(university=request.POST.get('university', ''))
+            return render(request, 'student/counsellors_list.html', {'data': counsellors_list})
+    else:
+        form = CounsellorForm()
+    return render(request, 'student/counsellor.html', {'form': form})

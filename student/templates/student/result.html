@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ data }}</h1>
+{% for  i in data %}
+	<h1>{{ i }}</h1>
+{%endfor%}
 {% endblock %}

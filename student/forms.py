@@ -1,4 +1,5 @@
 from django import forms
+from .models import College
 
 class UserRegistrationForm(forms.Form):
 	username = forms.CharField(
@@ -50,4 +51,14 @@ class RecommendationForm(forms.Form):
 		label="Ethnicity",
 		required=True,
 		choices=ETHNIC_SELECT,
+	)
+
+class CounsellorForm(forms.Form):
+	COLLEGE_SELECT = College.objects.values_list('title', flat=True)
+	COLLEGE_SELECT = [(i, i) for i in COLLEGE_SELECT]
+
+	university = forms.ChoiceField(
+		label="University",
+		required=True,
+		choices=COLLEGE_SELECT
 	)
