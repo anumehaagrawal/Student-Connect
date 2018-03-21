@@ -1,9 +1,31 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 <title>Profile</title>
 {% endblock %}
 
-{% block content %}
-<h3 class="center">Hello, {{ user.username }}! This is your profile page.</h3>
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{%static 'profile.css' %}">
 {% endblock %}
+
+{% block content %}
+<h3><center>Profile Page</center>
+	<div class="card">
+		  
+		<center><i class="material-icons" style="font-size: 90px;">account_circle</i></center>
+		<h3>{{user.username}}</h3>
+		<p class="title">University aspirant</p>
+		<div class="row">
+			<div class="title grey-text"> <i class="material-icons">mail</i>Contact at : </div>
+			<div class="col s11 m11 l11 title">{{user.email}}</div>
+		</div>
+		
+		
+		 
+</div>
+
+{% endblock %}
+
+
