@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.html import escape, mark_safe
-from datetime import datetime   
+from datetime import datetime
 
 class College(models.Model):
     title = models.CharField(max_length=255)
