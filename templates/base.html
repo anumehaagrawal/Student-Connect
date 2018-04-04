@@ -25,6 +25,7 @@
 				<li><a href="#">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
 				{% if user.is_student %}
 				<li><a href="/colleges">Colleges</a></li>
+				<li><a href="/recommendations">Recommendations</a></li>
 				{% endif %}
 				<li><a href="/accounts/logout" class="waves-effect waves-light btn">Logout</a></li>
 			{% else %}

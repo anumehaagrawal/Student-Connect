@@ -5,10 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from .decorators import student_required, counsellor_required
-from .forms import StudentSignUpForm, CounsellorSignUpForm
+from .forms import StudentSignUpForm, CounsellorSignUpForm,RecommendationForm
 from .models import Counsellor, User, College
 from django.utils import timezone
-
+from .analytics import recommend_college
 
 class CounsellorSignUpView(CreateView):
     model = Counsellor
@@ -35,7 +35,7 @@ class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
 
 def home(request):
-	return render(request, 'home.html')
+    return render(request, 'home.html')
 
 @login_required
 def logout_view(request):
@@ -47,3 +47,19 @@ def colleges(request):
     data = College.objects.order_by('title')
     nonelist = [None for i in range(5)]
     return render(request, 'student/college.html', {'colleges': data, 'ratings': nonelist})
+
+@login_required
+def recommendations(request):
+    if request.method == 'POST':
+        form = RecommendationForm(request.POST)
+        if form.is_valid():
+            income = request.POST.get('income', '')
+            ethnic_group = request.POST.get('ethnic_group', '')
+            sat_score = request.POST.get('sat_score', '')
+            gpa = request.POST.get('gpa', '')
+            interest = request.POST.get('interest', '')
+            recommended_colleges = recommend_college(int(income), interest, int(ethnic_group), int(sat_score))
+            return render(request, 'student/result.html', {'data': recommended_colleges})
+    else:
+        form = RecommendationForm()
+    return render(request, 'student/recommendation.html', {'form': form})

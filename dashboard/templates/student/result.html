@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Colleges For You</title>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{% static 'result.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="main">
+	<h3><center>Colleges Recommended for you </h3></center>
+	{% for  i in data %}
+	<div class="card result" style="margin: 2px;">
+		<div class="row">
+			<div class="col s3 m2 l2"><i class="material-icons">school</i></div>
+			<div class="col s9 m10 l10" style="font-size: 1.4em;"">{{i}}</div>
+		</div>
+	</div>
+</div>
+	{%endfor%}
+{% endblock %}
