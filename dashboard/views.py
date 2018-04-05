@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from .decorators import student_required, counsellor_required
-from .forms import StudentSignUpForm, CounsellorSignUpForm,RecommendationForm
+from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm
 from .models import Counsellor, User, College
 from django.utils import timezone
 from .analytics import recommend_college
@@ -63,3 +63,22 @@ def recommendations(request):
     else:
         form = RecommendationForm()
     return render(request, 'student/recommendation.html', {'form': form})
+
+@login_required
+def counsellors(request):
+    if request.method == 'POST':
+        form = CounsellorForm(request.POST)
+        if form.is_valid():
+            university = request.POST.get('university', '')
+            counsellors_list = Counsellor.objects.filter(university=request.POST.get('university', ''))
+            print(counsellors_list[0].university)
+            return render(request, 'counsellor/counsellors_list.html', {'data': counsellors_list})
+    else:
+        form = CounsellorForm()
+    return render(request, 'counsellor/counsellor.html', {'form': form})
+
+@login_required(login_url='/accounts')
+def profile(request):
+	if request.user.is_authenticated() and request.user.is_student:
+		return render(request, 'student/profile.html')
+	return redirect('/')
