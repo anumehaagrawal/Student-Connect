@@ -19,12 +19,12 @@
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="/">Home</a></li>
 			{% if user.is_authenticated %}
-				<li><a href="/profile">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
 				{% if user.is_student %}
 				<li><a href="/colleges">Colleges</a></li>
 				<li><a href="/recommendations">Recommendations</a></li>
 				<li><a href="/counsellors">Counsellor</a></li>
 				{% endif %}
+				<li><a href="/profile">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
 				<li><a href="/accounts/logout" class="waves-effect waves-light btn">Logout</a></li>
 			{% else %}
 				<li><a href="/accounts">Login</a></li>

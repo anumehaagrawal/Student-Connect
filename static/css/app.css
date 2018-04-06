@@ -6,6 +6,7 @@
 .stars-icon {
 	margin: 0 !important;
 	font-size: 1.4rem !important;
+	color: #bf360c;
 }
 
 /* mainpage */
@@ -98,7 +99,7 @@ a:visited {
 }
 
 .det-bor {
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid black;
 	padding: 10px !important;
 }
 
@@ -124,4 +125,23 @@ a:visited {
 .college-reviews, .college-fees {
 	font-size: 1.2rem;
 	font-family: 'Raleway', sans-serif;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+	color: #1a237e !important;
+}
+
+.collection-item {
+	cursor: pointer;
+	color: #1a237e !important;
+	font-size: 1.6rem;
+	padding: 20px !important;
+}
+
+.collection-item .row {
+	margin-bottom: 0;
+}
+
+.container h3 {
+	font-family: 'Slabo 27px', serif;
 }

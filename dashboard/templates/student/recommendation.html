@@ -11,12 +11,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+<div class="row auth-row">
     <div class="col s4 push-s4">
 		<form method="post">
 		    {% csrf_token %}
 		    {{ form }}
-		    <input class="waves-effect waves-light btn indigo darken-4" type="submit" value="Submit" />
+		    <div class="row"><button class="col s12 waves-effect waves-light btn indigo darken-4" type="submit">submit</button></div>
 		</form>
 	</div>
 </div>
