@@ -43,12 +43,14 @@ def logout_view(request):
     return redirect('/')
 
 @login_required
+@student_required
 def colleges(request):
     data = College.objects.order_by('title')
     nonelist = [None for i in range(5)]
     return render(request, 'student/college.html', {'colleges': data, 'ratings': nonelist})
 
 @login_required
+@student_required
 def recommendations(request):
     if request.method == 'POST':
         form = RecommendationForm(request.POST)
@@ -65,6 +67,7 @@ def recommendations(request):
     return render(request, 'student/recommendation.html', {'form': form})
 
 @login_required
+@student_required
 def counsellors(request):
     if request.method == 'POST':
         form = CounsellorForm(request.POST)
@@ -82,3 +85,12 @@ def profile(request):
     if request.user.is_authenticated() and request.user.is_student:
         return render(request, 'student/profile.html')
     return redirect('/')
+
+@login_required
+@student_required
+def counsellors_profile(request, counsellor_username):
+	if request.user.is_authenticated() and request.user.is_student:
+		user_obj = User.objects.get(username=counsellor_username)
+		counsellor_data = Counsellor.objects.get(user=user_obj)
+		return render(request, 'counsellor/profile.html', { 'data': counsellor_data })
+	return redirect('/')
