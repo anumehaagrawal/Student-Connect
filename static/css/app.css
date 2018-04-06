@@ -93,7 +93,35 @@ a:visited {
 	font-size: 2rem;
 }
 
-
 .auth-row {
 	margin-top: 3vh;
+}
+
+.det-bor {
+	border-bottom: 1px dotted black;
+	padding: 10px !important;
+}
+
+.det-bor h5 {
+	margin: 0;
+	font-family: 'Slabo 27px', serif;
+}
+
+.det {
+	font-family: 'Slabo 27px', serif;
+}
+
+.collapsible-body .row {
+	margin: 0;
+}
+
+.college-location {
+	font-size: 1.7rem;
+	font-family: 'Poor Story', cursive;
+	padding-top: 5px !important;
+}
+
+.college-reviews, .college-fees {
+	font-size: 1.2rem;
+	font-family: 'Raleway', sans-serif;
 }
