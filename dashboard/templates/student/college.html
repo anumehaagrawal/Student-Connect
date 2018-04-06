@@ -5,6 +5,10 @@
 <title>Colleges</title>
 {% endblock %}
 
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px|Poor+Story|Raleway" rel="stylesheet" />
+{% endblock %}
+
 {% block scripts %}
 <script src="{% static 'js/radialIndicator.min.js' %}"></script>
 <script src="{% static 'js/college.js' %}"></script>
@@ -32,27 +36,31 @@
 				</div>
 				<div class="collapsible-body">
 					<div class="row">
-						<div class="col s12 m4 l4 center">
-							<h5>Median {{ college.exam }}</h5>
-							<div class="hide" id="college-score-{{ forloop.counter0 }}">{{ college.score }}</div>
-							<div id="indicatorContainer{{ forloop.counter0 }}"></div>
+						<div class="col s12 m12 l12 row det-bor">
+							<div class="col s6 m6 l4"><h5>Median {{ college.exam }}</h5></div>
+							<div class="col s6 m6 l4">
+								<div class="hide" id="college-score-{{ forloop.counter0 }}">{{ college.score }}</div>
+								<div id="indicatorContainer{{ forloop.counter0 }}"></div>
+							</div>
 						</div>
-						<div class="col s12 m4 l4 center">
-							<h5>Fees</h5>
-							&#8377; {{ college.fees }} lakhs
+						<div class="col s12 m12 l12 row det-bor">
+							<div class="col s6 m6 l4"><h5>Fees</h5></div>
+							<div class="col s6 m6 l4 college-fees">&#8377; {{ college.fees }} lakhs</div>
 						</div>
-						<div class="col s12 m4 l4 center">
-							<h5>Specialisation</h5>
-							<div class="hide" id="college-specialisation-{{ forloop.counter0 }}">{{ college.specialisation}}</div>
-							<div id="colSpec{{ forloop.counter0 }}"></div>
+						<div class="col s12 m12 l12 row det-bor">
+							<div class="col s6 m6 l4"><h5>Specialisation</h5></div>
+							<div class="col s6 m6 l8">
+								<div class="hide" id="college-specialisation-{{ forloop.counter0 }}">{{ college.specialisation}}</div>
+								<div id="colSpec{{ forloop.counter0 }}"></div>
+							</div>
 						</div>
-						<div class="col s12 m6 l6 center">
-							<h5>Reviews</h5>
-							{{ college.reviews }}
+						<div class="col s12 m12 l12 row det-bor">
+							<div class="col s6 m6 l4"><h5>Reviews</h5></div>
+							<div class="col s6 m6 l8 college-reviews">{{ college.reviews }}</div>
 						</div>
-						<div class="col s12 m6 l6 center">
-							<h5>Location</h5>
-							{{ college.location }}
+						<div class="col s12 m12 l12 row">
+							<div class="col s6 m6 l4 det"><h5>Location</h5></div>
+							<div class="col s6 m6 l4 college-location">{{ college.location }}</div>
 						</div>
 					</div>
 				</div>
