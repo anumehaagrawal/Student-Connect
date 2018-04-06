@@ -5,7 +5,7 @@ from .models import College
 from nltk.corpus import wordnet
 from django.db import models
 from itertools import product
-import urllib.parse,httplib2
+import httplib2,urllib
 import json
 subscribe_entity="70d88b730e4944429c03697f8d4587f4"
 subscription_key_img = "25fcd5bc41aa4995998304649f8646f7"
@@ -76,7 +76,7 @@ def get_suggestions (query):
     host = 'api.cognitive.microsoft.com'
     path = '/bing/v7.0/entities'
     mkt = 'en-US'
-    params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
+    params = '?mkt=' + mkt + '&q=' + urllib.pathname2url (query)
     headers = {'Ocp-Apim-Subscription-Key': subscribe_entity}
     conn = httplib2.Http()
     result=conn.request ("https://api.cognitive.microsoft.com/"+path+params,'GET',headers=headers)[1]
@@ -114,3 +114,4 @@ def get_suggestions (query):
                 if "description" in key:
                     result["desciption"]=i["description"]
     return result
+print(get_suggestions("Stanford University"))
