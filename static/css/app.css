@@ -92,3 +92,8 @@ a:visited {
 .set-common-size-tick {
 	font-size: 2rem;
 }
+
+
+.auth-row {
+	margin-top: 3vh;
+}

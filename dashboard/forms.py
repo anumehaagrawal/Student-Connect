@@ -96,7 +96,7 @@ class RecommendationForm(forms.Form):
 	)
 
 class CounsellorForm(forms.Form):
-	COLLEGE_SELECT = College.objects.values_list('title', flat=True)
+	COLLEGE_SELECT = College.objects.order_by('title').values_list('title', flat=True)
 	COLLEGE_SELECT = [(i, i) for i in COLLEGE_SELECT]
 
 	university = forms.ChoiceField(

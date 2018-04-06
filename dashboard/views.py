@@ -79,6 +79,6 @@ def counsellors(request):
 
 @login_required(login_url='/accounts')
 def profile(request):
-	if request.user.is_authenticated() and request.user.is_student:
-		return render(request, 'student/profile.html')
-	return redirect('/')
+    if request.user.is_authenticated() and request.user.is_student:
+        return render(request, 'student/profile.html')
+    return redirect('/')

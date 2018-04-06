@@ -22,11 +22,11 @@ class Counsellor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     last_login = models.DateTimeField(default=datetime.now)
     email = models.CharField(max_length=255)
-    phone_number=models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255)
     university = models.CharField(max_length=255)
     sat_score = models.CharField(max_length=255)
     act_score = models.CharField(max_length=255)
-    gpa=models.CharField(max_length=255)
+    gpa = models.CharField(max_length=255)
     ethnicity = models.CharField(max_length=255)
 
     def __str__(self):
