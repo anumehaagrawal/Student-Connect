@@ -99,9 +99,9 @@ def profile(request):
         if request.user.is_student:
             return render(request, 'student/profile.html')
         else:
-        	counsellor = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
+        	counsellor_data = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
         	no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
-        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor, 'passouts': no_of_passouts })
+        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor_data, 'passouts': no_of_passouts })
     return redirect('/')
 
 @login_required

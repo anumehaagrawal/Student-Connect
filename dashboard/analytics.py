@@ -1,7 +1,7 @@
 import requests
 from pprint import pprint
 import numpy as np
-from .models import College,Counsellor
+from .models import College,Counsellor,User
 from nltk.corpus import wordnet
 from django.db import models
 from itertools import product
@@ -128,8 +128,13 @@ def handle_uploaded_file(filename,container_name):
     local_file_name = filename
     full_path_to_file = os.path.join('/home/w1zard/Documents/Student-Connect/', local_file_name)
     block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
-    counsellor_name=filename.split(".")[0]
-    print(counsellor_name)
+    counsellor_name = filename.split(".")[0]
+    counsellor_obj = Counsellor.objects.get(user=User.objects.get(username=counsellor_name))
+    counsellor_obj.is_uploaded = True
+    if counsellor_obj.is_uploaded is True:
+        counsellor_obj.is_verified=True
+        counsellor_obj.save()
+
 
 def retrieve_file_azure(filename,container_name):
     block_blob_service = BlockBlobService(account_name='storagedocs', account_key='D91eaRC0yUX8OUAr3zYzWON2EDdsn1pKhlDoO3ZU4z5yDEBP+nS2CVxRHrmvW8zf0k4GQPzdLehAJfGc9tezJA==') 

@@ -33,6 +33,8 @@ class Counsellor(models.Model):
     act_score = models.CharField(max_length=255)
     gpa = models.CharField(max_length=255)
     ethnicity = models.CharField(max_length=255)
+    is_verified = models.BooleanField(default=False)
+    is_uploaded = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
