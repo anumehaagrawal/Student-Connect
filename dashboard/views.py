@@ -3,18 +3,25 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
+from django.http import HttpResponse
 from .decorators import student_required, counsellor_required
 from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm
 from .models import Counsellor, User, College
 from django.utils import timezone
-from django.http import JsonResponse
 from .analytics import recommend_college,get_suggestions,image_search
-from twilio.jwt.access_token import AccessToken
-from twilio.jwt.access_token.grants import SyncGrant ,IpMessagingGrant
-from faker import Factory
-from twilio.rest import Client
+import pusher
+
+pusher_client = pusher.Pusher(
+  app_id='505148',
+  key='2261f30532b42da9c0f7',
+  secret='5fb6cd6acaec5fc1af1c',
+  cluster='ap2',
+  ssl=True
+)
+
 class CounsellorSignUpView(CreateView):
     model = Counsellor
     form_class = CounsellorSignUpForm
@@ -116,3 +123,12 @@ def college_profile(request, number):
         print(image_result)
         return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':result ,'img_r':image_result })
     return redirect('/')
+
+@login_required
+def chat(request):
+	return render(request, 'chat/chat.html')
+
+@csrf_exempt
+def broadcast(request):
+    pusher_client.trigger(u'a_channel', u'an_event', {u'name': request.user.username, u'message': request.POST['message']})
+    return HttpResponse("done")

@@ -1,19 +1,19 @@
 status: 200
-apim-request-id: 2ef6662f-165f-4c40-b83e-cd7b36594a85
+apim-request-id: 9a7fd248-9dff-4674-9144-6a5280db2de3
 vary: Accept-Encoding
 content-length: 2408
-x-msapi-userstate: 7fa3
-bingapis-traceid: 5285BA3C138146D1A99892BB1BC72582
+x-msapi-userstate: d82f
+bingapis-traceid: 7EF9DC81DC5E45D4B08B46592EA9CA38
 p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
 x-content-type-options: nosniff
-bingapis-sessionid: E31BD7CA635E495B86D37DD1090AC6C1
-x-msedge-clientid: 0C460621E3B76F042F730DEBE2526E9E
+bingapis-sessionid: E4A529E046804064962511F8CF36719A
+x-msedge-clientid: 111CC4D49DE96F653E08CF1E9CA66EED
 cache-control: private, max-age=0
-x-msedge-ref: Ref A: 5285BA3C138146D1A99892BB1BC72582 Ref B: SG2EDGE0921 Ref
- C: 2018-04-07T09:33:45Z
-expires: Sat, 07 Apr 2018 09:32:44 GMT
+x-msedge-ref: Ref A: 7EF9DC81DC5E45D4B08B46592EA9CA38 Ref B: AM3EDGE0513 Ref
+ C: 2018-04-07T10:04:23Z
+expires: Sat, 07 Apr 2018 10:03:22 GMT
 -content-encoding: gzip
-date: Sat, 07 Apr 2018 09:33:44 GMT
+date: Sat, 07 Apr 2018 10:04:22 GMT
 content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Central%20Michigan%20University
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 server: Microsoft-HTTPAPI/2.0
