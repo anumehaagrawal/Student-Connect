@@ -1,9 +1,5 @@
 from django.conf.urls import include, url
-<<<<<<< HEAD
-from .views import home, colleges, recommendations, counsellors, profile,chat
-=======
-from .views import home, colleges, recommendations, counsellors, profile, counsellors_profile, college_profile
->>>>>>> 4b075e2323474cc9baac381bf59da4a0aebe4f82
+from .views import home, colleges, recommendations, counsellors, profile, counsellors_profile, college_profile,chat
 
 urlpatterns = [
 	url(r'^$', home, name='home'),

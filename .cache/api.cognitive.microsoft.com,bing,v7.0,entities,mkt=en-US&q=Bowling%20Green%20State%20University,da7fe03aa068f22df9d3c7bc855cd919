@@ -1,0 +1,24 @@
+status: 200
+apim-request-id: 66398fcd-3c7b-4ec8-9e95-f32fccf7289d
+vary: Accept-Encoding
+content-length: 2531
+x-msapi-userstate: 2aba
+bingapis-traceid: B564DD931A604CDC9C762EB916B7F0EB
+p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
+x-content-type-options: nosniff
+bingapis-sessionid: 16CC18E6D3464A65BFE9D16AEB1D777E
+x-msedge-clientid: 262E1265E35666FD317B19AFE2196704
+cache-control: private, max-age=0
+x-msedge-ref: Ref A: B564DD931A604CDC9C762EB916B7F0EB Ref B: AM3EDGE0215 Ref
+ C: 2018-04-07T01:13:43Z
+expires: Sat, 07 Apr 2018 01:12:42 GMT
+-content-encoding: gzip
+date: Sat, 07 Apr 2018 01:13:43 GMT
+content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Bowling%20Green%20State%20University
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+server: Microsoft-HTTPAPI/2.0
+content-type: application/json; charset=utf-8
+bingapis-market: en-US
+-varied-accept-encoding: gzip, deflate
+
+{"_type": "SearchResponse", "queryContext": {"originalQuery": "Bowling Green State University"}, "entities": {"value": [{"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0", "contractualRules": [{"_type": "ContractualRules\/LicenseAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "license": {"name": "CC-BY-SA", "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"}, "licenseNotice": "Text under CC-BY-SA license"}, {"_type": "ContractualRules\/LinkAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "text": "Wikipedia", "url": "http:\/\/en.wikipedia.org\/wiki\/Bowling_Green_State_University"}, {"_type": "ContractualRules\/MediaAttribution", "targetPropertyName": "image", "mustBeCloseToContent": true, "url": "http:\/\/www.bgsu.edu\/"}], "webSearchUrl": "https:\/\/www.bing.com\/entityexplore?q=Bowling+Green+State+University&filters=sid:%222499a04e-33f5-8f94-483e-1f8277fd96b6%22&elv=AXXfrEiqqD9r3GuelwApulr8AUYha5u*wysM8leovJ*6snjvDZh7oc985vacF767LGS6iqmvaLC8tf9ZDnCwK9a2d3O1VE3XruODZUOmO0H6", "name": "Bowling Green State University", "image": {"name": "Bowling Green State University", "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A794af6342b97c57633212cb8b82bd2ea&w=110&h=110&c=7&rs=1&qlt=95&cdv=1&pid=16.1", "provider": [{"_type": "Organization", "url": "http:\/\/www.bgsu.edu\/"}], "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/thumb\/a\/a3\/Bowling_Green_State_University_seal.svg\/500px-Bowling_Green_State_University_seal.svg.png", "width": 110, "height": 110, "sourceWidth": 299, "sourceHeight": 300}, "description": "Bowling Green State University is a large, primarily residential, public research university located in Bowling Green, Ohio, United States. The 1,338-acre main academic and residential campus is located 15 miles south of Toledo, Ohio. The institution was granted a charter in 1910 as a normal school, specializing in teacher training and education, as part of the Lowry Normal School Bill that authorized two new normal schools in the state of Ohio. Over the university's history, it developed from a small rural normal school into a comprehensive public university.", "entityPresentationInfo": {"entityScenario": "DominantEntity", "entityTypeHints": ["CollegeOrUniversity", "Organization"]}, "bingId": "2499a04e-33f5-8f94-483e-1f8277fd96b6"}]}, "rankingResponse": {"sidebar": {"items": [{"answerType": "Entities", "resultIndex": 0, "value": {"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0"}}]}}}

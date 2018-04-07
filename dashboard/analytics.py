@@ -114,4 +114,3 @@ def get_suggestions (query):
                 if "description" in key:
                     result["desciption"]=i["description"]
     return result
-print(get_suggestions("Stanford University"))

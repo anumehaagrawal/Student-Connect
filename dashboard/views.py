@@ -8,7 +8,7 @@ from .decorators import student_required, counsellor_required
 from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm
 from .models import Counsellor, User, College
 from django.utils import timezone
-from .analytics import recommend_college
+from .analytics import recommend_college,get_suggestions
 
 class CounsellorSignUpView(CreateView):
     model = Counsellor
@@ -106,8 +106,14 @@ def counsellors_profile(request, counsellor_username):
 @login_required
 @student_required
 def college_profile(request, number):
-	if request.user.is_authenticated() and request.user.is_student:
-		college_data = College.objects.get(id=int(number))
-		return render(request, 'student/college_profile.html', { 'data': college_data })
-	return redirect('/')
+    if request.user.is_authenticated() and request.user.is_student:
+        college_data = College.objects.get(id=int(number))
+        college_name=college_data.title
+        result=get_suggestions(college_name)
+        res=[]
+        for key in result:
+            res.append(str(result[key]))
+        print(res)
+        return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':res })
+    return redirect('/')
 
