@@ -104,3 +104,5 @@ class CounsellorForm(forms.Form):
 		required=True,
 		choices=COLLEGE_SELECT
 	)
+class ReviewCollegeForm(forms.Form):
+	reviews=forms.CharField(widget=forms.Textarea)

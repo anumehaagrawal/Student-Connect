@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from django.http import HttpResponse
 from .decorators import student_required, counsellor_required
-from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm
+from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm, ReviewCollegeForm
 from .models import Counsellor, User, College
 from django.utils import timezone
 from .analytics import recommend_college,get_suggestions,image_search
@@ -102,6 +102,24 @@ def profile(request):
         	counsellor = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
         	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor })
     return redirect('/')
+
+@login_required
+def reviews(request):
+    college = Counsellor.objects.get(user=User.objects.get(username=request.user.username)).university
+    if request.user.is_counsellor:
+        if request.method == 'POST':
+            form = ReviewCollegeForm(request.POST)
+            if form.is_valid():
+                reviews = request.POST.get('reviews','')
+                college_db = College.objects.get(title=college)
+                college_db.reviews = college_db.reviews + " ; " + reviews
+                print(college_db.reviews)
+                college_db.save()
+                return render(request,'counsellor/review_result.html')
+        else: 
+            form = ReviewCollegeForm()
+    return render(request,'counsellor/college_reviews.html', {'form': form , 'col_name':college })
+
 
 @login_required
 @student_required
