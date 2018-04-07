@@ -12,59 +12,55 @@
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <script>
 	function runKeyPressScript(e) {
-	    if (e.keyCode == 13 && $('#btn-input').val()) {
-	        $('#btn-chat').click();
-	    }
+		if (e.keyCode == 13 && $('#btn-input').val()) {
+			$('#btn-chat').click();
+		}
 	}
 
-    //initiate puhser with your application key
-    var pusher = new Pusher('2261f30532b42da9c0f7', {
-      cluster: 'ap2',
-      encrypted: true
-    });
-    //subscribe to the channel you want to listen to
-    var my_channel = pusher.subscribe('a_channel');
-    //wait for an event to be triggered in that channel
-    my_channel.bind("an_event", function (data) {
-        // declare a variable new_message to hold the new chat messages
-        var new_message = `<li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=`+data.name+`" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">`+data.name+`</strong> <small class="pull-right text-muted">
-                                </div>
-                                <p>
-                                   `+data.message+`
-                                </p>
-                            </div>
-                        </li>`;
-     //append the new message to the ul holding the chat messages
-    $('#chat').append(new_message);
-	var height = $(".panel-body")[0].scrollHeight;
-	$(".panel-body").animate({ scrollTop: height }, "slow");
-    });
-    //wait until the DOM is fully ready
-    $(document).ready(function(){
-    //add event listener to the chat button click 
-        $("#btn-chat").click(function(){
-    //get the currently typed message
-             var message = $('#btn-input').val();
+	//initiate puhser with your application key
+	var pusher = new Pusher('2261f30532b42da9c0f7', {
+		cluster: 'ap2',
+		encrypted: true
+	});
+	//subscribe to the channel you want to listen to
+	var my_channel = pusher.subscribe('a_channel');
+	//wait for an event to be triggered in that channel
+	my_channel.bind("an_event", function (data) {
+		// declare a variable new_message to hold the new chat messages
+		var new_message = `
+		<li>
+			<div class="row">
+				<div class="col s10">` + data.message + `</div>
+				<div class="col s2 right-align light">` + data.name + `</div>
+			</div>
+		</li>
+		`;
+	 //append the new message to the ul holding the chat messages
+	 $('#chat').append(new_message);
+	 var height = $(".panel-body")[0].scrollHeight;
+	 $(".panel-body").animate({ scrollTop: height }, "slow");
+ });
+	//wait until the DOM is fully ready
+	$(document).ready(function(){
+	//add event listener to the chat button click 
+	$("#btn-chat").click(function(){
+	//get the currently typed message
+	var message = $('#btn-input').val();
 
-            $.post({
-                url: '/ajax/chat/',
-                data: {
-                'message': message
-                },
-                success: function (data) {
+	$.post({
+		url: '/ajax/chat/',
+		data: {
+			'message': message
+		},
+		success: function (data) {
 
-                    $('#btn-input').val('');
+			$('#btn-input').val('');
 
-                }
-            });
+		}
+	});
 
-        })
-    })
+})
+})
 
 </script>
 {% endblock %}

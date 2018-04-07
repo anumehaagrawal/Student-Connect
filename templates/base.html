@@ -23,9 +23,13 @@
 				<li><a href="/colleges">Colleges</a></li>
 				<li><a href="/recommendations">Recommendations</a></li>
 				<li><a href="/counsellors">Counsellor</a></li>
+				<li><a href="/profile" class="waves-effect waves-light btn white indigo-text text-darken-4">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
+				{% else %}
+				<li><a href="/profile" class="waves-effect waves-light btn white indigo-text text-darken-4">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
+				<li><a href="/review" class="waves-effect waves-light btn blue">review my college</a></li>
 				{% endif %}
-				<li><a href="/profile">{{user.username}} | {% if user.is_counsellor %}Counsellor{% else %}Student{% endif %}</a></li>
-				<li><a href="/accounts/logout" class="waves-effect waves-light btn">Logout</a></li>
+				<li><a href="/chat" class="waves-effect waves-light btn">chat</a></li>
+				<li><a href="/accounts/logout" class="waves-effect waves-light btn red">Logout</a></li>
 			{% else %}
 				<li><a href="/accounts">Login</a></li>
 				<li><a href="/accounts/signup">Register</a></li>
