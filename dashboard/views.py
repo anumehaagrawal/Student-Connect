@@ -9,7 +9,7 @@ from django.views.generic import CreateView
 from django.http import HttpResponse
 from .decorators import student_required, counsellor_required
 from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm, ReviewCollegeForm
-from .models import Counsellor, User, College
+from .models import Counsellor, User, College, Passout
 from django.utils import timezone
 from .analytics import recommend_college,get_suggestions,image_search
 import pusher
@@ -100,7 +100,8 @@ def profile(request):
             return render(request, 'student/profile.html')
         else:
         	counsellor = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
-        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor })
+        	no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
+        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor, 'passouts': no_of_passouts })
     return redirect('/')
 
 @login_required
@@ -127,7 +128,8 @@ def counsellors_profile(request, counsellor_username):
 	if request.user.is_authenticated() and request.user.is_student:
 		user_obj = User.objects.get(username=counsellor_username)
 		counsellor_data = Counsellor.objects.get(user=user_obj)
-		return render(request, 'counsellor/profile.html', { 'data': counsellor_data })
+		no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
+		return render(request, 'counsellor/profile.html', { 'data': counsellor_data, 'passouts': no_of_passouts })
 	return redirect('/')
 
 @login_required

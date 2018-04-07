@@ -1,19 +1,19 @@
 status: 200
-apim-request-id: 49d907a2-c2de-4056-a345-5758c0f7b5b3
+apim-request-id: 46127190-4312-47ac-8f2d-5263527839ae
 vary: Accept-Encoding
 content-length: 2144
-x-msapi-userstate: ae5c
-bingapis-traceid: EABC76A12F1D4D4FBF86A8625F0DF005
+x-msapi-userstate: 89fb
+bingapis-traceid: C74127325EFA480D837F34FF4B490F8D
 p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
 x-content-type-options: nosniff
-bingapis-sessionid: 551749598DFF4554B7D17EE9400ABDE5
-x-msedge-clientid: 015F1A923DE16F8C37A711583C046E83
+bingapis-sessionid: F9E6B2868AE447BBBCAA9214071B016D
+x-msedge-clientid: 27B1A5CCBCEB6B5A355AAE06BD4D6A75
 cache-control: private, max-age=0
-x-msedge-ref: Ref A: EABC76A12F1D4D4FBF86A8625F0DF005 Ref B: SG2EDGE0315 Ref
- C: 2018-04-07T09:42:15Z
-expires: Sat, 07 Apr 2018 09:41:15 GMT
+x-msedge-ref: Ref A: C74127325EFA480D837F34FF4B490F8D Ref B: AMS04EDGE0921 Ref
+ C: 2018-04-07T19:39:20Z
+expires: Sat, 07 Apr 2018 19:38:20 GMT
 -content-encoding: gzip
-date: Sat, 07 Apr 2018 09:42:14 GMT
+date: Sat, 07 Apr 2018 19:39:20 GMT
 content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Rutgers%20University
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 server: Microsoft-HTTPAPI/2.0

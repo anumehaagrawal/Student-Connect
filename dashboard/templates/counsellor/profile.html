@@ -25,6 +25,7 @@
 			<div class="title grey-text"> <i class="material-icons">phone</i>Contact at : </div>
 			<div class="col s11 m11 l11 title">{{ data.phone_number }}</div>
 		</div>
+		<h3>Successful applicants {{ passouts }}</h3>
 	{% else %}
 		<h3 style="margin: 1px;">{{ counsellor.user.username }}</h3>
 		<div class="title grey-text">Counsellor - {{ counsellor.university }}</div>
@@ -32,6 +33,7 @@
 			<div class="title grey-text"> <i class="material-icons">phone</i>Contact at : </div>
 			<div class="col s11 m11 l11 title">{{ counsellor.phone_number }}</div>
 		</div>
+		<h3>Successful applicants {{ passouts }}</h3>
 	{% endif %}
 </div>
 {% endblock %}

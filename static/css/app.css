@@ -162,6 +162,10 @@ a:visited {
 	font-size: 1.1em;
 }
 
+.cprof_details a {
+	cursor: pointer;
+}
+
 .slider .indicators .indicator-item {
 	background-color: #666666;
 	border: 3px solid #ffffff;

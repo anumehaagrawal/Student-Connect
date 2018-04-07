@@ -37,3 +37,6 @@ class Counsellor(models.Model):
     def __str__(self):
         return self.user.username
 
+class Passout(models.Model):
+	name = models.CharField(max_length=255)
+	counsellor_username = models.CharField(max_length=255)

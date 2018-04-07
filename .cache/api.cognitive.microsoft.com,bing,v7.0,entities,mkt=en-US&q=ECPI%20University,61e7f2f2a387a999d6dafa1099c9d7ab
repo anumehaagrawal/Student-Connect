@@ -1,19 +1,19 @@
 status: 200
-apim-request-id: 64c08cb8-a29e-43ac-9ae3-8ec2070884ae
+apim-request-id: 60189abf-d727-46cf-a9dc-5d3913f9e2ad
 vary: Accept-Encoding
 content-length: 2273
-x-msapi-userstate: 0c64
-bingapis-traceid: F3418D5B0CD74901AD1D07AAD51B634C
+x-msapi-userstate: 8466
+bingapis-traceid: 84E186576A7E43AA845D6E18AC0E84AD
 p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
 x-content-type-options: nosniff
-bingapis-sessionid: DB421364C5D1480F9E73FA100AB8AE71
-x-msedge-clientid: 0766C43C454361382A73CFF644E56075
+bingapis-sessionid: 546D54FB29D746B5B26C4C9D7BCE95E3
+x-msedge-clientid: 31BE6015153863E603A06BDF149E6221
 cache-control: private, max-age=0
-x-msedge-ref: Ref A: F3418D5B0CD74901AD1D07AAD51B634C Ref B: AMS04EDGE0308 Ref
- C: 2018-04-07T08:37:33Z
-expires: Sat, 07 Apr 2018 08:36:33 GMT
+x-msedge-ref: Ref A: 84E186576A7E43AA845D6E18AC0E84AD Ref B: AMS04EDGE1019 Ref
+ C: 2018-04-07T19:45:04Z
+expires: Sat, 07 Apr 2018 19:44:03 GMT
 -content-encoding: gzip
-date: Sat, 07 Apr 2018 08:37:33 GMT
+date: Sat, 07 Apr 2018 19:45:03 GMT
 content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=ECPI%20University
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 server: Microsoft-HTTPAPI/2.0
