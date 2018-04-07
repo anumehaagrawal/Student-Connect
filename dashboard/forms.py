@@ -106,3 +106,6 @@ class CounsellorForm(forms.Form):
 	)
 class ReviewCollegeForm(forms.Form):
 	reviews=forms.CharField(widget=forms.Textarea)
+
+class UploadFileForm(forms.Form):
+	
