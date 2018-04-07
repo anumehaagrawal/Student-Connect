@@ -1,102 +1,22 @@
-<html>
-    <head>
-        <title>
-        </title>
-    </head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="//js.pusher.com/4.0/pusher.min.js"></script>
-    <style>
-        .chat
-{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+{% extends "base.html" %}
+{% load static %}
 
-.chat li
-{
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #B3A9A9;
-}
+{% block title %}
+<title>Chatroom</title>
+{% endblock %}
 
-.chat li.left .chat-body
-{
-    margin-left: 60px;
-}
+{% block stylesheets %}
+{% endblock %}
 
-.chat li.right .chat-body
-{
-    margin-right: 60px;
-}
-
-.chat li .chat-body p
-{
-    margin: 0;
-    color: #777777;
-}
-
-.panel .slidedown .glyphicon, .chat .glyphicon
-{
-    margin-right: 5px;
-}
-
-.panel-body
-{
-    overflow-y: scroll;
-    height: 250px;
-}
-
-::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar
-{
-    width: 12px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}
-
-    </style>
-    <body>
-        <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Chat
-                </div>
-                <div class="panel-body">
-            <!-- ul element holding chat messages -->
-                    <ul class="chat" id="chat">
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-        <!-- text imput fot the messages to be typed into -->
-                        <input id="btn-input" class="form-control input-sm" placeholder="Type your message here..." type="text">
-                        <span class="input-group-btn">
-        <!--- send button for the chat box -->
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
-                                Send</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% block scripts %}
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <script>
+	function runKeyPressScript(e) {
+	    if (e.keyCode == 13 && $('#btn-input').val()) {
+	        $('#btn-chat').click();
+	    }
+	}
+
     //initiate puhser with your application key
     var pusher = new Pusher('2261f30532b42da9c0f7', {
       cluster: 'ap2',
@@ -121,6 +41,8 @@
                         </li>`;
      //append the new message to the ul holding the chat messages
     $('#chat').append(new_message);
+	var height = $(".panel-body")[0].scrollHeight;
+	$(".panel-body").animate({ scrollTop: height }, "slow");
     });
     //wait until the DOM is fully ready
     $(document).ready(function(){
@@ -145,5 +67,46 @@
     })
 
 </script>
-</body>
-</html>
+{% endblock %}
+
+{% block content %}
+<style>
+	.panel-body
+	{
+		overflow-y: auto;
+		height: 70vh;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-track
+	{
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		background-color: #F5F5F5;
+	}
+
+	::-webkit-scrollbar
+	{
+		width: 12px;
+		background-color: #F5F5F5;
+	}
+
+	::-webkit-scrollbar-thumb
+	{
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		background-color: #555;
+	}
+
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col s12 upper-region"><h5><i class="material-icons">message</i>&nbsp;&nbsp;&nbsp;Chat</h5></div>
+		<div class="col s12 panel-body grey lighten-3">
+			<!-- ul element holding chat messages -->
+			<ul class="" id="chat">
+			</ul>
+		</div>
+		<input id="btn-input" class="col s12" placeholder="Type a message" type="text" onkeypress="runKeyPressScript(event);" />
+		<button id="btn-chat" class="col s12 btn waves-effect waves-light indigo darken-4" type="submit" name="action">send<i class="material-icons right">send</i></button>	
+	</div>
+</div>
+{% endblock %}
