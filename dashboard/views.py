@@ -82,3 +82,6 @@ def profile(request):
     if request.user.is_authenticated() and request.user.is_student:
         return render(request, 'student/profile.html')
     return redirect('/')
+@login_required(login_url='/accounts')
+def chat(request):
+    return render(request,'student/chat.html')

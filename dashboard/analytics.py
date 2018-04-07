@@ -78,7 +78,7 @@ def get_suggestions (query):
     mkt = 'en-US'
     params = '?mkt=' + mkt + '&q=' + urllib.pathname2url (query)
     headers = {'Ocp-Apim-Subscription-Key': subscribe_entity}
-    conn = httplib2.Http()
+    conn = httplib2.Http(".cache", disable_ssl_certificate_validation=True)
     result=conn.request ("https://api.cognitive.microsoft.com/"+path+params,'GET',headers=headers)[1]
     result=result.decode('utf8')
     #response = conn.getresponse ()

@@ -137,3 +137,9 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
+
+TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID',None)
+TWILIO_API_KEY = os.environ.get('TWILIO_API_KEY', None)
+TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET', None)
+TWILIO_IPM_SERVICE_SID = os.environ.get('TWILIO_IPM_SERVICE_SID', None)
+TWILIO_AUTH_TOKEN=os.environ.get('TWILIO_AUTH_TOKEN',None)
