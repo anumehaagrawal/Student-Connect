@@ -5,11 +5,57 @@
 <title>{{data.title}}</title>
 {% endblock %}
 
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px|Poor+Story|Raleway" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/college_profile.js' %}"></script>
+{% endblock %}
+
 {% block content %}
-<h1 class="center">College Profile</h1>
-<h2>{{ data.title }}</h2>
-<h2>{{ data.specialisation }}</h2>
-<p> {% for key in extend_data %}
-	{{key}}
-	{% endfor %}
+<div class="container">
+	<div class="row valign-wrapper">
+		<div class="col m3 l3 s3">
+			<img src="{{ extend_data.image }}" style="height: 40vh; width: 40vh ;" class="cprof_image">
+		</div>
+		<div class="col offset-s1 s8 cprof_details">
+			<h2 class=" indigo-text"> {{ extend_data.name }}</h2>
+			<div class="row">	
+				<div class="col s1" ">
+					<i class="fa fa fa-wikipedia-w" aria-hidden="true"></i>
+				</div>
+				<div class="col s11" style="padding-left: 0px;>
+					<a href="{{ extend_data.wikiurl }} ">{{ extend_data.wikiurl }}</a><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s1">
+					<i class="material-icons">info_outline</i>
+				</div>
+				<div class="s11">
+					<a href="{{ extend_data.web }} ">{{ extend_data.web }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col m12 l12 s12 content">
+			<p>{{ extend_data.desciption }}</p>
+		</div>
+	</div>
+
+<div class="slider">
+    <ul class="slides">
+    {% for img in img_r %}
+      <li>
+        <img src="{{img}}" style="height: 55vh; width: 150vh;"> <!-- random image -->
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+      
+        
+</div>
 {% endblock %}

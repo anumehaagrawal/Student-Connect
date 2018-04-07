@@ -1,19 +1,19 @@
 status: 200
-apim-request-id: 882d8b4d-381d-4188-9592-e89a2071e8aa
+apim-request-id: 0b75f61c-64c9-4ebb-8413-5ae0cba09bbc
 vary: Accept-Encoding
 content-length: 2095
-x-msapi-userstate: 4919
-bingapis-traceid: 9ABE9FDE1D814920B10100DF62EA04D0
+x-msapi-userstate: 17b6
+bingapis-traceid: 407F1775BF344D3BA966B2BF03B67AFF
 p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
 x-content-type-options: nosniff
-bingapis-sessionid: 373584F8E38849F896F50D945764E636
-x-msedge-clientid: 0F480BEA6DA662A92AC500206CE963EB
+bingapis-sessionid: 9406C76DC0D14DD996A9D37AC6D4C1B9
+x-msedge-clientid: 0C4A78F1D67F67803EC4733BD79A66F7
 cache-control: private, max-age=0
-x-msedge-ref: Ref A: 9ABE9FDE1D814920B10100DF62EA04D0 Ref B: AM3EDGE0215 Ref
- C: 2018-04-07T01:08:58Z
-expires: Sat, 07 Apr 2018 01:07:58 GMT
+x-msedge-ref: Ref A: 407F1775BF344D3BA966B2BF03B67AFF Ref B: SG2EDGE0712 Ref
+ C: 2018-04-07T09:42:48Z
+expires: Sat, 07 Apr 2018 09:41:47 GMT
 -content-encoding: gzip
-date: Sat, 07 Apr 2018 01:08:58 GMT
+date: Sat, 07 Apr 2018 09:42:47 GMT
 content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Boston%20University
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 server: Microsoft-HTTPAPI/2.0

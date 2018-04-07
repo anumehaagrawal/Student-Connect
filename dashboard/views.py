@@ -10,10 +10,11 @@ from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, 
 from .models import Counsellor, User, College
 from django.utils import timezone
 from django.http import JsonResponse
-from .analytics import recommend_college,get_suggestions
-from twilio.access_token import AccessToken,IpMessagingGrant
-
-
+from .analytics import recommend_college,get_suggestions,image_search
+from twilio.jwt.access_token import AccessToken
+from twilio.jwt.access_token.grants import SyncGrant ,IpMessagingGrant
+from faker import Factory
+from twilio.rest import Client
 class CounsellorSignUpView(CreateView):
     model = Counsellor
     form_class = CounsellorSignUpForm
@@ -95,9 +96,6 @@ def profile(request):
         	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor })
     return redirect('/')
 
-@login_required(login_url='/accounts')
-def chat(request):
-    return render(request,'student/chat.html')
 @login_required
 @student_required
 def counsellors_profile(request, counsellor_username):
@@ -114,22 +112,7 @@ def college_profile(request, number):
         college_data = College.objects.get(id=int(number))
         college_name=college_data.title
         result=get_suggestions(college_name)
-        res=[]
-        for key in result:
-            res.append(str(result[key]))
-        print(res)
-        return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':res })
+        image_result=image_search("alumini",college_name)
+        print(image_result)
+        return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':result ,'img_r':image_result })
     return redirect('/')
-
-def token(request):
-    device_id = request.GET.get('device', 'unknown')
-    identity = request.GET.get('identity', 'guest').encode('utf-8')
-    endpoint_id = "NeighborChat:{0}:{1}".format(device_id,identity)
-    token = AccessToken(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_API_KEY,
-                        settings.TWILIO_API_SECRET, identity)
-    grant = IpMessagingGrant()
-    grant.service_sid = settings.TWILIO_IPM_SERVICE_SID
-    grant.endpoint_id = endpoint_id
-    token.add_grant(grant)
-    response = {'identity': identity, 'token': token.to_jwt()}
-    return JsonResponse(response)

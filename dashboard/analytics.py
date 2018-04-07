@@ -12,6 +12,7 @@ subscription_key_img = "25fcd5bc41aa4995998304649f8646f7"
 subscription_key="a0cdcb30c0894f918d92c0de8f34d85e"
 assert subscription_key
 
+
 text_analytics_base_url = "https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0"
 sentiment_api_url = text_analytics_base_url + "/sentiment"
 
@@ -61,16 +62,20 @@ def recommend_college(student_income,student_interest,student_ethnic,student_sco
 						college_suggest.append(col.title)
 	return college_suggest
 
-def image_search(subscription_key,interests,college):   
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key_img))
-    image_results = client.images.search(query="banner"+ college)
-    if image_results.value:
-        first_image_result = image_results.value[0]
-        url=first_image_result.thumbnail_url
-        return url
+def image_search(interests,college):   
+    search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+    headers = {"Ocp-Apim-Subscription-Key" : subscription_key_img}
+    searchterm=college+" "+ interests
+    params  = {"q": searchterm, "license": "public", "imageType": "photo"}
+    response = requests.get(search_url, headers=headers, params=params)
+    response.raise_for_status()
+    search_results = response.json()
+    result=[]
+    if('queryExpansions' in search_results.keys()):
+        for i in search_results['queryExpansions']:
+            result.append(i['thumbnail']['thumbnailUrl'])
+    return result
 
-    else:
-        return None
     
 def get_suggestions (query):
     host = 'api.cognitive.microsoft.com'

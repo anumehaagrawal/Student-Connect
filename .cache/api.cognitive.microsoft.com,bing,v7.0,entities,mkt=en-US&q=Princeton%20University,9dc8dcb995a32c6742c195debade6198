@@ -1,0 +1,24 @@
+status: 200
+apim-request-id: 09568e6c-096d-4122-8b8c-867fb254caa5
+vary: Accept-Encoding
+content-length: 2532
+x-msapi-userstate: 16de
+bingapis-traceid: 72C0C8F194A54A7DA511B403EACEFA16
+p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
+x-content-type-options: nosniff
+bingapis-sessionid: BBB44EC3F8A541EBAC58953A7CB809D5
+x-msedge-clientid: 307E4F2C0D756CA9231144E60CD36D16
+cache-control: private, max-age=0
+x-msedge-ref: Ref A: 72C0C8F194A54A7DA511B403EACEFA16 Ref B: AMS04EDGE0613 Ref
+ C: 2018-04-07T09:35:14Z
+expires: Sat, 07 Apr 2018 09:34:14 GMT
+-content-encoding: gzip
+date: Sat, 07 Apr 2018 09:35:13 GMT
+content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Princeton%20University
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+server: Microsoft-HTTPAPI/2.0
+content-type: application/json; charset=utf-8
+bingapis-market: en-US
+-varied-accept-encoding: gzip, deflate
+
+{"_type": "SearchResponse", "queryContext": {"originalQuery": "Princeton University"}, "entities": {"value": [{"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0", "contractualRules": [{"_type": "ContractualRules\/LicenseAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "license": {"name": "CC-BY-SA", "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"}, "licenseNotice": "Text under CC-BY-SA license"}, {"_type": "ContractualRules\/LinkAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "text": "Wikipedia", "url": "http:\/\/en.wikipedia.org\/wiki\/Princeton_University"}, {"_type": "ContractualRules\/MediaAttribution", "targetPropertyName": "image", "mustBeCloseToContent": true, "url": "http:\/\/www.princeton.edu\/"}], "webSearchUrl": "https:\/\/www.bing.com\/entityexplore?q=Princeton+University&filters=sid:%2297394e57-ff30-c1a3-b2bf-9308788b5993%22&elv=AXXfrEiqqD9r3GuelwApulr8AUYha5u*wysM8leovJ*6snjvDZh7oc985vacF767LGS6iqmvaLC8tf9ZDnCwK9a2d3O1VE3XruODZUOmO0H6", "name": "Princeton University", "image": {"name": "Dei Sub Numine Viget", "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A403df4a1e48842bda8dabe2d3d604430&w=110&h=110&c=7&rs=1&qlt=95&cdv=1&pid=16.1", "provider": [{"_type": "Organization", "url": "http:\/\/www.princeton.edu\/"}], "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/ru\/e\/ee\/%D0%93%D0%B5%D1%80%D0%B1_%D0%9F%D1%80%D0%B8%D0%BD%D1%81%D1%82%D0%BE%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D0%B0.gif", "width": 110, "height": 110, "sourceWidth": 155, "sourceHeight": 160}, "description": "Princeton University is a private Ivy League research university in Princeton, New Jersey, United States. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution. The institution moved to Newark in 1747, then to the current site nine years later, where it was renamed Princeton University in 1896.", "entityPresentationInfo": {"entityScenario": "DominantEntity", "entityTypeHints": ["Attraction", "CollegeOrUniversity", "Organization"], "entityTypeDisplayHint": "Private University"}, "bingId": "97394e57-ff30-c1a3-b2bf-9308788b5993"}]}, "rankingResponse": {"sidebar": {"items": [{"answerType": "Entities", "resultIndex": 0, "value": {"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0"}}]}}}
