@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from django.conf import settings
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -8,7 +9,10 @@ from .decorators import student_required, counsellor_required
 from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm
 from .models import Counsellor, User, College
 from django.utils import timezone
+from django.http import JsonResponse
 from .analytics import recommend_college,get_suggestions
+from twilio.access_token import AccessToken,IpMessagingGrant
+
 
 class CounsellorSignUpView(CreateView):
     model = Counsellor
@@ -117,3 +121,15 @@ def college_profile(request, number):
         return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':res })
     return redirect('/')
 
+def token(request):
+    device_id = request.GET.get('device', 'unknown')
+    identity = request.GET.get('identity', 'guest').encode('utf-8')
+    endpoint_id = "NeighborChat:{0}:{1}".format(device_id,identity)
+    token = AccessToken(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_API_KEY,
+                        settings.TWILIO_API_SECRET, identity)
+    grant = IpMessagingGrant()
+    grant.service_sid = settings.TWILIO_IPM_SERVICE_SID
+    grant.endpoint_id = endpoint_id
+    token.add_grant(grant)
+    response = {'identity': identity, 'token': token.to_jwt()}
+    return JsonResponse(response)
