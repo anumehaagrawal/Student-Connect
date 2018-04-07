@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 
 {% load static %}
+
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet" />
+{% endblock %}
+
 {% block content %}
-<div class="row auth-row">
-    <div class="col s12">
-		<h2 class="center">Thank you for your reviews</h2>
+<div class="container">
+	<div class="row auth-row">
+	    <div class="col s3 right-align"><i class="material-icons green-text large">done</i></div>
+	    <div class="col s9"><h2>Thanks! Your feedback is valuable to us.</h2></div>
 	</div>
 </div>
 {% endblock %}

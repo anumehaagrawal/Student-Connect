@@ -3,16 +3,20 @@
 {% load static %}
 
 {% block title %}
+<title>Review your college</title>
+{% endblock %}
 
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet" />
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="{% static 'recommendation.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/recommendation.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <div class="row auth-row">
-	<h2><center>Enter reviews for {{ col_name }}</center></h2>
+	<h2 class="center">Reviews for {{ col_name }}</h2>
     <div class="col s4 push-s4">
 		<form method="post">
 		    {% csrf_token %}
