@@ -1,10 +1,11 @@
+from dashboard.models import Counsellor, Passout
 from dashboard.analytics import generate_ratings
-from dashboard.models import College
+from random import choice
 
-colleges = College.objects().all()
-for col in range(len(colleges)):
-    review = colleges[col].reviews
-    rating = generate_ratings(review)
-    colobj = colleges[col]
-    colobj.ratings = rating
-    colobj.save()
+colleges = Counsellor.objects.all()
+f = open('a.csv')
+for col in f.read().strip().split('\n'):
+	colobj = Passout(name=col.strip(), counsellor_username=choice(colleges).user.username)
+	colobj.save()
+f.close()
+
