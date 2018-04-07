@@ -9,7 +9,7 @@
 	<h3><center>Colleges Recommended For You</center></h3>
 	<div class="collection">
 		{% for i in data %}
-			<a href="#!" class="collection-item light"><div class="row"><div class="col s1 m1 l1"><i class="material-icons">school</i></div><div class="col s8 m8 l8" style="font-size: 1.4em;">{{ i }}</div></div></a>
+			<a href="{% url 'college_profile' number=i.college_id %}" class="collection-item light"><div class="row"><div class="col s1 m1 l1"><i class="material-icons">school</i></div><div class="col s8 m8 l8" style="font-size: 1.4em;">{{ i.title }}</div></div></a>
 		{% endfor %}
 	</div>
 </div>

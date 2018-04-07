@@ -43,12 +43,14 @@ def logout_view(request):
     return redirect('/')
 
 @login_required
+@student_required
 def colleges(request):
     data = College.objects.order_by('title')
     nonelist = [None for i in range(5)]
     return render(request, 'student/college.html', {'colleges': data, 'ratings': nonelist})
 
 @login_required
+@student_required
 def recommendations(request):
     if request.method == 'POST':
         form = RecommendationForm(request.POST)
@@ -59,19 +61,21 @@ def recommendations(request):
             gpa = request.POST.get('gpa', '')
             interest = request.POST.get('interest', '')
             recommended_colleges = recommend_college(int(income), interest, int(ethnic_group), int(sat_score))
+            for col in range(len(recommended_colleges)):
+            	recommended_colleges[col] = College.objects.get(title=recommended_colleges[col])
             return render(request, 'student/result.html', {'data': recommended_colleges})
     else:
         form = RecommendationForm()
     return render(request, 'student/recommendation.html', {'form': form})
 
 @login_required
+@student_required
 def counsellors(request):
     if request.method == 'POST':
         form = CounsellorForm(request.POST)
         if form.is_valid():
             university = request.POST.get('university', '')
             counsellors_list = Counsellor.objects.filter(university=request.POST.get('university', ''))
-            print(counsellors_list[0].university)
             return render(request, 'counsellor/counsellors_list.html', {'data': counsellors_list})
     else:
         form = CounsellorForm()
@@ -79,9 +83,31 @@ def counsellors(request):
 
 @login_required(login_url='/accounts')
 def profile(request):
-    if request.user.is_authenticated() and request.user.is_student:
-        return render(request, 'student/profile.html')
+    if request.user.is_authenticated():
+        if request.user.is_student:
+            return render(request, 'student/profile.html')
+        else:
+        	counsellor = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
+        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor })
     return redirect('/')
+
 @login_required(login_url='/accounts')
 def chat(request):
     return render(request,'student/chat.html')
+@login_required
+@student_required
+def counsellors_profile(request, counsellor_username):
+	if request.user.is_authenticated() and request.user.is_student:
+		user_obj = User.objects.get(username=counsellor_username)
+		counsellor_data = Counsellor.objects.get(user=user_obj)
+		return render(request, 'counsellor/profile.html', { 'data': counsellor_data })
+	return redirect('/')
+
+@login_required
+@student_required
+def college_profile(request, number):
+	if request.user.is_authenticated() and request.user.is_student:
+		college_data = College.objects.get(id=int(number))
+		return render(request, 'student/college_profile.html', { 'data': college_data })
+	return redirect('/')
+

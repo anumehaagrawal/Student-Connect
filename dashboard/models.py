@@ -4,6 +4,7 @@ from django.utils.html import escape, mark_safe
 from datetime import datetime
 
 class College(models.Model):
+    college_id = models.PositiveIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
     reviews = models.CharField(max_length=1000)
     fees = models.CharField(max_length=255)
@@ -13,6 +14,10 @@ class College(models.Model):
     location = models.CharField(max_length=255)
     ethnicity = models.CharField(max_length=255)
     ratings = models.IntegerField()
+
+    @property
+    def college_id(self):
+        return self.id
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
