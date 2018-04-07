@@ -108,4 +108,8 @@ class ReviewCollegeForm(forms.Form):
 	reviews=forms.CharField(widget=forms.Textarea)
 
 class UploadFileForm(forms.Form):
-	
+	title = forms.CharField(max_length=50)
+	file = forms.FileField()
+
+	def filename(self):
+		return os.path.basename(self.file.name)

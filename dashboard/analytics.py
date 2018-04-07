@@ -1,12 +1,13 @@
 import requests
 from pprint import pprint
 import numpy as np
-from .models import College
+from .models import College,Counsellor
 from nltk.corpus import wordnet
 from django.db import models
 from itertools import product
 import httplib2,urllib
-import json
+import json,os
+from azure.storage.blob import BlockBlobService, PublicAccess
 subscribe_entity="70d88b730e4944429c03697f8d4587f4"
 subscription_key_img = "25fcd5bc41aa4995998304649f8646f7"
 subscription_key="a0cdcb30c0894f918d92c0de8f34d85e"
@@ -119,3 +120,20 @@ def get_suggestions (query):
                 if "description" in key:
                     result["desciption"]=i["description"]
     return result
+def handle_uploaded_file(filename,container_name):
+    block_blob_service = BlockBlobService(account_name='storagedocs', account_key='D91eaRC0yUX8OUAr3zYzWON2EDdsn1pKhlDoO3ZU4z5yDEBP+nS2CVxRHrmvW8zf0k4GQPzdLehAJfGc9tezJA==') 
+    container_name = container_name
+    block_blob_service.create_container(container_name) 
+    block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+    local_file_name = filename
+    full_path_to_file = os.path.join('/home/w1zard/Documents/Student-Connect/', local_file_name)
+    block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+    counsellor_name=filename.split(".")[0]
+    print(counsellor_name)
+
+def retrieve_file_azure(filename,container_name):
+    block_blob_service = BlockBlobService(account_name='storagedocs', account_key='D91eaRC0yUX8OUAr3zYzWON2EDdsn1pKhlDoO3ZU4z5yDEBP+nS2CVxRHrmvW8zf0k4GQPzdLehAJfGc9tezJA==') 
+    full_path_to_file2 = os.path.join('/home/w1zard/Documents/Student-Connect/dashboard/documents/',filename)
+    print("\nDownloading blob to " + full_path_to_file2)
+    block_blob_service.get_blob_to_path(container_name, filename, full_path_to_file2)
+    

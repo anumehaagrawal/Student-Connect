@@ -8,10 +8,10 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from django.http import HttpResponse
 from .decorators import student_required, counsellor_required
-from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm, ReviewCollegeForm
+from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm, ReviewCollegeForm, UploadFileForm
 from .models import Counsellor, User, College
 from django.utils import timezone
-from .analytics import recommend_college,get_suggestions,image_search
+from .analytics import recommend_college,get_suggestions,image_search,handle_uploaded_file,retrieve_file_azure
 import pusher
 
 pusher_client = pusher.Pusher(
@@ -150,3 +150,15 @@ def chat(request):
 def broadcast(request):
     pusher_client.trigger(u'a_channel', u'an_event', {u'name': request.user.username, u'message': request.POST['message']})
     return HttpResponse("done")
+
+@login_required
+def upload(request):
+    if request.method == 'POST':
+        form=UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'].name,'uploaddocs')
+            return render(request,'counsellor/profile.html')
+
+    else:
+        form = UploadFileForm()
+    return render(request, 'counsellor/upload.html', {'form': form})
