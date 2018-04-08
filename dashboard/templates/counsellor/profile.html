@@ -18,31 +18,18 @@
 <h3><center>Profile Page</center>
 <div class="card">
 	<img src="{% static 'photo.jpeg' %}"  style="width:100%; height: 300px;"> 
-	{% if user.is_student %}
-		<h3 style="margin: 1px;">{{ data.user.username }}</h3>
-		<div class="title grey-text">Counsellor - {{ data.university }}</div>
-		<div class="row">
-			<div class="title grey-text"> <i class="material-icons">phone</i>Contact at : </div>
-			<div class="col s11 m11 l11 title">{{ data.phone_number }}</div>
-		</div>
-		<h3>Successful applicants {{ passouts }}</h3>
-		{% if data.is_verified %}
-			<i class="material-icons">done</i><h4>Verified</h4>
-		{% endif %}
+	<h3 style="margin: 1px;">{{ counsellor.user.username }}</h3>
+	<div class="title grey-text">Counsellor - {{ counsellor.university }}</div>
+	<div class="row">
+		<div class="title grey-text"> <i class="material-icons">phone</i>Contact at : </div>
+		<div class="col s11 m11 l11 title">{{ counsellor.phone_number }}</div>
+	</div>
+	<h3>Successful applicants {{ passouts }}</h3>
+	{% if counsellor.is_verified %}
+		<i class="material-icons green-text">done</i><h4>Verified</h4>
 	{% else %}
-		<h3 style="margin: 1px;">{{ counsellor.user.username }}</h3>
-		<div class="title grey-text">Counsellor - {{ counsellor.university }}</div>
-		<div class="row">
-			<div class="title grey-text"> <i class="material-icons">phone</i>Contact at : </div>
-			<div class="col s11 m11 l11 title">{{ counsellor.phone_number }}</div>
-		</div>
-		<h3>Successful applicants {{ passouts }}</h3>
-		{% if counsellor.is_verified %}
-			<i class="material-icons green-text">done</i><h4>Verified</h4>
-		{% else %}
-			<i class="material-icons red-text">clear</i><h4>Unverified</h4>
-		{% endif %}
-		<a href="/upload" class="waves-effect waves-light btn indigo darken-4 white-text">Upload Documents</a>
+		<i class="material-icons red-text">clear</i><h4>Unverified</h4>
 	{% endif %}
+	<a href="/upload" class="waves-effect waves-light btn indigo darken-4 white-text">Upload Documents</a>
 </div>
 {% endblock %}

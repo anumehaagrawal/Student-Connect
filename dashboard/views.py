@@ -11,7 +11,7 @@ from .decorators import student_required, counsellor_required
 from .forms import StudentSignUpForm, CounsellorSignUpForm, RecommendationForm, CounsellorForm, ReviewCollegeForm, UploadFileForm
 from .models import Counsellor, User, College, Passout
 from django.utils import timezone
-from .analytics import recommend_college,get_suggestions,image_search,handle_uploaded_file,retrieve_file_azure
+from .analytics import recommend_college, get_suggestions, image_search, handle_uploaded_file, retrieve_file_azure
 import pusher
 
 pusher_client = pusher.Pusher(
@@ -74,7 +74,7 @@ def recommendations(request):
             interest = request.POST.get('interest', '')
             recommended_colleges = recommend_college(int(income), interest, int(ethnic_group), int(sat_score))
             for col in range(len(recommended_colleges)):
-            	recommended_colleges[col] = College.objects.get(title=recommended_colleges[col])
+                recommended_colleges[col] = College.objects.get(title=recommended_colleges[col])
             return render(request, 'student/result.html', {'data': recommended_colleges})
     else:
         form = RecommendationForm()
@@ -99,9 +99,9 @@ def profile(request):
         if request.user.is_student:
             return render(request, 'student/profile.html')
         else:
-        	counsellor_data = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
-        	no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
-        	return render(request, 'counsellor/profile.html', { 'counsellor': counsellor_data, 'passouts': no_of_passouts })
+            counsellor_data = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
+            no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
+            return render(request, 'counsellor/profile.html', { 'counsellor': counsellor_data, 'passouts': no_of_passouts })
     return redirect('/')
 
 @login_required
@@ -125,12 +125,12 @@ def reviews(request):
 @login_required
 @student_required
 def counsellors_profile(request, counsellor_username):
-	if request.user.is_authenticated() and request.user.is_student:
-		user_obj = User.objects.get(username=counsellor_username)
-		counsellor_data = Counsellor.objects.get(user=user_obj)
-		no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
-		return render(request, 'counsellor/profile.html', { 'data': counsellor_data, 'passouts': no_of_passouts })
-	return redirect('/')
+    if request.user.is_authenticated() and request.user.is_student:
+        user_obj = User.objects.get(username=counsellor_username)
+        counsellor_data = Counsellor.objects.get(user=user_obj)
+        no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
+        return render(request, 'counsellor/profile.html', { 'counsellor_data': counsellor_data, 'passouts': no_of_passouts })
+    return redirect('/')
 
 @login_required
 @student_required
@@ -146,7 +146,7 @@ def college_profile(request, number):
 
 @login_required
 def chat(request):
-	return render(request, 'chat/chat.html')
+    return render(request, 'chat/chat.html')
 
 @csrf_exempt
 def broadcast(request):
@@ -158,9 +158,9 @@ def upload(request):
     if request.method == 'POST':
         form=UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
+            counsellor_data = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
             handle_uploaded_file(request.FILES['file'].name,'uploaddocs')
-            return render(request,'counsellor/profile.html')
-
+            return render(request, 'counsellor/profile.html', {'counsellor': counsellor_data})
     else:
         form = UploadFileForm()
     return render(request, 'counsellor/upload.html', {'form': form})

@@ -40,5 +40,5 @@ class Counsellor(models.Model):
         return self.user.username
 
 class Passout(models.Model):
-	name = models.CharField(max_length=255)
-	counsellor_username = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    counsellor_username = models.CharField(max_length=255)
