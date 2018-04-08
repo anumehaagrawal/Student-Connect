@@ -46,16 +46,22 @@
 		</div>
 	</div>
 
-<div class="slider">
-    <ul class="slides">
-    {% for img in img_r %}
-      <li>
-        <img src="{{img}}" style="height: 55vh; width: 150vh;"> <!-- random image -->
-      </li>
-    {% endfor %}
-    </ul>
-  </div>
-      
-        
-</div>
-{% endblock %}
+	<div class="slider">
+		<ul class="slides">
+			{% for img in img_r %}
+			{% if img %}
+			<li>
+				<img src="{{img}}" style="height: 55vh; width: 150vh;"> <!-- random image -->
+			</li>
+			{% else %}
+			<li>
+				<img src = "https://www.jbs.cam.ac.uk/fileadmin/user_upload/programmes/emba/carousel/pembroke-college-883x432.jpg">
+			</li>
+			{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	      
+	        
+	</div>
+	{% endblock %}

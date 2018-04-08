@@ -1,0 +1,24 @@
+status: 200
+apim-request-id: 72bea853-40b2-4e1f-a28d-685eb5cc8931
+vary: Accept-Encoding
+content-length: 2300
+x-msapi-userstate: c9af
+bingapis-traceid: 594F978F4DDB41939821F50850F5D099
+p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
+x-content-type-options: nosniff
+bingapis-sessionid: 63CA5BFDFADE49EB904E8764A3310300
+x-msedge-clientid: 19D317E2AD2561013A9A1C29AC6A60AD
+cache-control: private, max-age=0
+x-msedge-ref: Ref A: 594F978F4DDB41939821F50850F5D099 Ref B: AM3EDGE0417 Ref
+ C: 2018-04-08T04:17:56Z
+expires: Sun, 08 Apr 2018 04:16:56 GMT
+-content-encoding: gzip
+date: Sun, 08 Apr 2018 04:17:55 GMT
+content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=Georgia%20Institute%20of%20Technology
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+server: Microsoft-HTTPAPI/2.0
+content-type: application/json; charset=utf-8
+bingapis-market: en-US
+-varied-accept-encoding: gzip, deflate
+
+{"_type": "SearchResponse", "queryContext": {"originalQuery": "Georgia Institute of Technology"}, "entities": {"value": [{"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0", "contractualRules": [{"_type": "ContractualRules\/LicenseAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "license": {"name": "CC-BY-SA", "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"}, "licenseNotice": "Text under CC-BY-SA license"}, {"_type": "ContractualRules\/LinkAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "text": "Wikipedia", "url": "http:\/\/en.wikipedia.org\/wiki\/Georgia_Institute_of_Technology"}, {"_type": "ContractualRules\/MediaAttribution", "targetPropertyName": "image", "mustBeCloseToContent": true, "url": "http:\/\/www.gatech.edu\/"}], "webSearchUrl": "https:\/\/www.bing.com\/entityexplore?q=Georgia+Institute+of+Technology&filters=sid:%223a69a115-efe2-98a7-3323-dcc34223c844%22&elv=AXXfrEiqqD9r3GuelwApuloZzKfNIGPH5ep*ZvKY4PeTqPV2VUTwHegntJoJli0wvaiskGERESHVjhEw*M!8bMLGh4Rua54BOlV7J0xhkDhB", "name": "Georgia Institute of Technology", "image": {"name": "Georgia Institute of Technology", "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A856249c0a799b7a3699a7d805a4b50fe&w=110&h=110&c=7&rs=1&qlt=95&cdv=1&pid=16.1", "provider": [{"_type": "Organization", "url": "http:\/\/www.gatech.edu\/"}], "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/6\/6c\/Georgia_Tech_seal.svg\/500px-Georgia_Tech_seal.svg.png", "width": 110, "height": 110, "sourceWidth": 300, "sourceHeight": 300}, "description": "The Georgia Institute of Technology, commonly referred to as Georgia Tech, is a public research university in Atlanta, Georgia, in the United States. It is a part of the University System of Georgia and has satellite campuses in Savannah, Georgia; Metz, France; Athlone, Ireland; Shenzhen, China; and Singapore.", "entityPresentationInfo": {"entityScenario": "DominantEntity", "entityTypeHints": ["CollegeOrUniversity", "Organization"], "entityTypeDisplayHint": "Public University"}, "bingId": "3a69a115-efe2-98a7-3323-dcc34223c844"}]}, "rankingResponse": {"sidebar": {"items": [{"answerType": "Entities", "resultIndex": 0, "value": {"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0"}}]}}}
