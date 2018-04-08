@@ -184,3 +184,7 @@ textarea {
 	min-height: 10vh;
 	max-height: 50vh;
 }
+
+.brand-logo {
+	margin-left: 25px !important;
+}

@@ -129,7 +129,7 @@ def counsellors_profile(request, counsellor_username):
         user_obj = User.objects.get(username=counsellor_username)
         counsellor_data = Counsellor.objects.get(user=user_obj)
         no_of_passouts = Passout.objects.filter(counsellor_username=counsellor_data.user.username).count()
-        return render(request, 'counsellor/profile.html', { 'counsellor_data': counsellor_data, 'passouts': no_of_passouts })
+        return render(request, 'counsellor/profile.html', { 'counsellor': counsellor_data, 'passouts': no_of_passouts })
     return redirect('/')
 
 @login_required
@@ -141,7 +141,7 @@ def college_profile(request, number):
         result=get_suggestions(college_name)
         image_result=image_search("alumini",college_name)
         print(image_result)
-        return render(request, 'student/college_profile.html', { 'data': college_data,'extend_data':result ,'img_r':image_result })
+        return render(request, 'student/college_profile.html', { 'data': college_data, 'extend_data':result ,'img_r':image_result })
     return redirect('/')
 
 @login_required
@@ -156,7 +156,7 @@ def broadcast(request):
 @login_required
 def upload(request):
     if request.method == 'POST':
-        form=UploadFileForm(request.POST, request.FILES)
+        form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             counsellor_data = Counsellor.objects.get(user=User.objects.get(username=request.user.username))
             handle_uploaded_file(request.FILES['file'].name,'uploaddocs')

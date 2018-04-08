@@ -125,6 +125,7 @@ def handle_uploaded_file(filename,container_name):
     block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
     local_file_name = filename
     full_path_to_file = os.path.join(settings.BASE_DIR, local_file_name)
+    print settings.BASE_DIR
     block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
     counsellor_name = filename.split(".")[0]
     counsellor_obj = Counsellor.objects.get(user=User.objects.get(username=counsellor_name))

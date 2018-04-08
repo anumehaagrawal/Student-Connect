@@ -1,0 +1,24 @@
+status: 200
+apim-request-id: 25291761-8f9e-477b-bd80-28679c677b76
+vary: Accept-Encoding
+content-length: 3047
+x-msapi-userstate: 2ed2
+bingapis-traceid: 959522B129F74A8DA088EFA7DEB09EE8
+p3p: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
+x-content-type-options: nosniff
+bingapis-sessionid: 7443AC5A15AB42478973931D7310E409
+x-msedge-clientid: 33E26515CE416A9028A86EDECF0E6BB4
+cache-control: private, max-age=0
+x-msedge-ref: Ref A: 959522B129F74A8DA088EFA7DEB09EE8 Ref B: AM3EDGE0321 Ref
+ C: 2018-04-08T00:17:41Z
+expires: Sun, 08 Apr 2018 00:16:41 GMT
+-content-encoding: gzip
+date: Sun, 08 Apr 2018 00:17:41 GMT
+content-location: https://api.cognitive.microsoft.com//bing/v7.0/entities?mkt=en-US&q=California%20Institute%20of%20Technology
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+server: Microsoft-HTTPAPI/2.0
+content-type: application/json; charset=utf-8
+bingapis-market: en-US
+-varied-accept-encoding: gzip, deflate
+
+{"_type": "SearchResponse", "queryContext": {"originalQuery": "California Institute of Technology"}, "entities": {"value": [{"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0", "contractualRules": [{"_type": "ContractualRules\/LicenseAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "license": {"name": "CC-BY-SA", "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"}, "licenseNotice": "Text under CC-BY-SA license"}, {"_type": "ContractualRules\/LinkAttribution", "targetPropertyName": "description", "mustBeCloseToContent": true, "text": "Wikipedia", "url": "http:\/\/en.wikipedia.org\/wiki\/California_Institute_of_Technology"}, {"_type": "ContractualRules\/MediaAttribution", "targetPropertyName": "image", "mustBeCloseToContent": true, "url": "http:\/\/en.wikipedia.org\/wiki\/California_Institute_of_Technology"}], "webSearchUrl": "https:\/\/www.bing.com\/entityexplore?q=California+Institute+of+Technology&filters=sid:%225eca7ec3-ab1a-776e-8887-c1d82a90d41a%22&elv=AXXfrEiqqD9r3GuelwApuloZzKfNIGPH5ep*ZvKY4PeTqPV2VUTwHegntJoJli0wvaiskGERESHVjhEw*M!8bMLGh4Rua54BOlV7J0xhkDhB", "name": "California Institute of Technology", "image": {"name": "California Institute of Technology", "thumbnailUrl": "https:\/\/www.bing.com\/th?id=Ad13fa6586a9441754071ced615fb7598&w=110&h=110&c=7&rs=1&qlt=95&cdv=1&pid=16.1", "provider": [{"_type": "Organization", "url": "http:\/\/en.wikipedia.org\/wiki\/California_Institute_of_Technology"}], "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/thumb\/a\/a4\/Seal_of_the_California_Institute_of_Technology.svg\/500px-Seal_of_the_California_Institute_of_Technology.svg.png", "width": 110, "height": 110, "sourceWidth": 300, "sourceHeight": 298}, "description": "The California Institute of Technology is a private doctorate-granting university located in Pasadena, California, United States. Although founded as a preparatory and vocational school by Amos G. Throop in 1891, the college attracted influential scientists such as George Ellery Hale, Arthur Amos Noyes and Robert Andrews Millikan in the early 20th century. The vocational and preparatory schools were disbanded and spun off in 1910 and the college assumed its present name in 1921. In 1934, Caltech was elected to the Association of American Universities and the antecedents of NASA's Jet Propulsion Laboratory, which Caltech continues to manage and operate, were established between 1936 and 1943 under Theodore von Kármán. The university is one among a small group of institutes of technology in the United States which is primarily devoted to the instruction of technical arts and applied sciences.", "entityPresentationInfo": {"entityScenario": "DominantEntity", "entityTypeHints": ["CollegeOrUniversity", "Organization"], "entityTypeDisplayHint": "Private University"}, "bingId": "5eca7ec3-ab1a-776e-8887-c1d82a90d41a"}]}, "rankingResponse": {"sidebar": {"items": [{"answerType": "Entities", "resultIndex": 0, "value": {"id": "https:\/\/www.bingapis.com\/api\/v7\/#Entities.0"}}]}}}
