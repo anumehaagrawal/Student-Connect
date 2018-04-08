@@ -30,6 +30,8 @@
 	{% else %}
 		<i class="material-icons red-text">clear</i><h4>Unverified</h4>
 	{% endif %}
-	<a href="/upload" class="waves-effect waves-light btn indigo darken-4 white-text">Upload Documents</a>
+	{% if user.is_counsellor %}
+		<a href="/upload" class="waves-effect waves-light btn indigo darken-4 white-text">Upload Documents</a>
+	{% endif %}
 </div>
 {% endblock %}
