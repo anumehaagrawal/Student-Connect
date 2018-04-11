@@ -11,7 +11,7 @@ class StudentSignUpForm(UserCreationForm):
 		model = User
 
 	def save(self, commit=True):
-		user = super().save(commit=False)
+		user = super(StudentSignUpForm, self).save(commit=False)
 		user.is_student = True
 		if commit:
 			user.save()
@@ -42,7 +42,7 @@ class CounsellorSignUpForm(UserCreationForm):
 	
 	@transaction.atomic
 	def save(self):
-		user = super().save(commit=False)
+		user = super(CounsellorSignUpForm, self).save(commit=False)
 		user.is_counsellor = True
 		user.save()
 

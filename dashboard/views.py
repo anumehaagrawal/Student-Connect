@@ -114,7 +114,6 @@ def reviews(request):
                 reviews = request.POST.get('reviews','')
                 college_db = College.objects.get(title=college)
                 college_db.reviews = college_db.reviews + " ; " + reviews
-                print(college_db.reviews)
                 college_db.save()
                 return render(request,'counsellor/review_result.html')
         else: 
@@ -140,7 +139,6 @@ def college_profile(request, number):
         college_name=college_data.title
         result=get_suggestions(college_name)
         image_result=image_search("alumini",college_name)
-        print(image_result)
         return render(request, 'student/college_profile.html', { 'data': college_data, 'extend_data':result ,'img_r':image_result })
     return redirect('/')
 
